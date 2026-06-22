@@ -141,6 +141,8 @@ convention = "google"
   "N802",
   "PERF401",
   "PLR2004",
+  "ERA001",
+  "PLR0913",
 ]
 
 [tool.mypy]

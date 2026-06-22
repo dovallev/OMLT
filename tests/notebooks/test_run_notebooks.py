@@ -78,4 +78,24 @@ def test_conformal_tutorial():
 
 @pytest.mark.skipif(not keras_available, reason="keras needed for this notebook")
 def test_conformal_uncertainty_integration():
-    _test_run_notebook("conformal/regression", "02_uncertainty_integration.ipynb", 12)
+    _test_run_notebook("conformal/regression", "02_uncertainty_integration.ipynb", 11)
+
+
+@pytest.mark.skipif(not torch_available, reason="torch needed for this notebook")
+def test_conformal_classification_tutorial():
+    _test_run_notebook("conformal/classification", "01_conformal_tutorial.ipynb", 11)
+
+
+@pytest.mark.skipif(
+    (not torch_available) or (not onnx_available),
+    reason="torch and onnx needed for this notebook",
+)
+def test_conformal_classification_uncertainty_integration():
+    _test_run_notebook(
+        "conformal/classification", "02_uncertainty_integration.ipynb", 10
+    )
+
+
+@pytest.mark.skipif(not keras_available, reason="keras needed for this notebook")
+def test_conformal_feasibility_verification():
+    _test_run_notebook("conformal/regression", "03_feasibility_verification.ipynb", 10)
